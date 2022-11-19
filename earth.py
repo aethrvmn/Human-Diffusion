@@ -6,15 +6,16 @@ import matplotlib.pyplot as plt
 
 class Earth:
 
-    def __init__(self, filename):
+    def __init__(self):
+        pass
+
+    def black_and_white(self, filename, outputname, imgname, threshold = 5):
 
         self.img = Image.open(filename)
         self.arr = np.array(self.img.getdata())
-
-    def black_and_white(self, outputname, imgname, threshold = 5):
-
         self.newPixels = []
-        threshold = 5
+
+        threshold = 15
 
         for pixel in tqdm(self.arr):
             # if it looks like black, convert it to black
@@ -49,7 +50,7 @@ class Earth:
 
         return self
 
-    def plot(self, imgname, clrtmplt = 'ocean', xsize = 40, ysize = 40):
+    def plot(self, imgname, clrtmplt = 'ocean', xsize = 20, ysize = 20):
         plt.figure(figsize=(xsize, ysize))
         plt.imshow(self.map, cmap = clrtmplt)
         plt.ylabel('Latitude')
