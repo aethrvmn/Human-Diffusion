@@ -57,5 +57,5 @@ class Earth:
         plt.xlabel('Longtitude')
         plt.xticks([])
         plt.yticks([])
-        plt.savefig(imgname)
+        plt.savefig(f"Images/{imgname}")
         plt.show()
